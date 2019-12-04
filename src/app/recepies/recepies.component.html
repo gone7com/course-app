@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-md-4">
-        <recepie-list></recepie-list>
+        <recepie-list (sendRecepie)="recepieDetail($event)"></recepie-list>
     </div>
     <div class="col-md-8">
-        <recepie-detail></recepie-detail>
+        <recepie-detail  [recepie]="recepie"></recepie-detail>
 
     </div>
 </div>

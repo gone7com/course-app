@@ -1,4 +1,4 @@
-<shopping-edit></shopping-edit>
+<shopping-edit (addIngredient)=addIngredient($event)></shopping-edit>
 <div class="container">
 <ul  class="list-group">
 <li class="list-group-item" *ngFor="let ingredient of shoppingList">{{ingredient.ingName}} ({{ingredient.quantity}})</li>
