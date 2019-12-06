@@ -10,12 +10,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
-            <div class="dropdown manageDropdown">
+            <div class="col-sm-12 ">
+            <div class="dropdown" dropdowndirective #r="dropdowndirective">
                 <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                     Manage Recepie
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" [ngClass]="{'show':r.isshow}">
                     <a class="dropdown-item" >Edit</a>
                     <a class="dropdown-item">Delete</a>
                 </ul>

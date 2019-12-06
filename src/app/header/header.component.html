@@ -13,9 +13,9 @@
           <a class="nav-link" href="#" (click)="shoppingListShow()">Shopping list</a>
         </li>
       </ul>
-      <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Manager</button>
-        <ul class="dropdown-menu">
+      <div class="dropdown " dropdowndirective #r="dropdowndirective">
+          <button class="btn btn-primary dropdown-toggle " data-toggle="dropdown">Manager</button>
+        <ul class="dropdown-menu" [ngClass]={show:r.isshow}>
                 <li class="dropdown-list">one</li>
         </ul>
         </div>
