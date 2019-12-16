@@ -1,23 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Recepie } from './recepie.model';
-
+import {recepieService} from './recepieService.service';
 @Component({
   selector: 'recepies',
   templateUrl: './recepies.component.html',
-  styleUrls: ['./recepies.component.css']
+  styleUrls: ['./recepies.component.css'],
+  providers: [recepieService]
 })
 export class RecepiesComponent implements OnInit {
-  recepie:Recepie=new Recepie("","","");
-  constructor() { }
+  
+  constructor(private recepieService:recepieService) { }
   
   ngOnInit() {
+  
   }
 
-  recepieDetail(recepie:{recepieN:string,recepieD:string,recepieI:string}){
-        this.recepie.name=recepie.recepieN;
-        this.recepie.description=recepie.recepieD;
-        this.recepie.imgPath=recepie.recepieI;
-        console.log(this.recepie);
-        }
+  
 
 }

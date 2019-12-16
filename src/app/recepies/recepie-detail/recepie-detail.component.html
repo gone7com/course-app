@@ -16,7 +16,7 @@
                     Manage Recepie
                 </button>
                 <ul class="dropdown-menu" [ngClass]="{'show':r.isshow}">
-                    <a class="dropdown-item" >Edit</a>
+                    <a class="dropdown-item" (click)="sendToShoppingList()">Add To Shopping List</a>
                     <a class="dropdown-item">Delete</a>
                 </ul>
               </div>
@@ -28,4 +28,16 @@
                 </div>
 
               </div>
+
+              <div class="row">
+                  Ingredients:
+                    <div class="col-sm-12" *ngFor="let ingredient of ingredients,let i=index ">
+                            <div class="container">
+                                    <ul  class="list-group">
+                                    <li class="list-group-item">{{ingredient.ingName}}-{{ingredient.quantity}}</li>
+                    </ul>
+                                </div>
+    
+                  </div>
+                  </div>
     </div>

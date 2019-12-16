@@ -1,27 +1,24 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Recepie } from '../../recepie.model';
+import { recepieService } from '../../recepieService.service';
 
 @Component({
   selector: 'recepie-item',
   templateUrl: './recepie-item.component.html',
-  styleUrls: ['./recepie-item.component.css']
+  styleUrls: ['./recepie-item.component.css'],
 })
 export class RecepieItemComponent implements OnInit {
 
-  @Input('recepieList') recepieList:Recepie; 
-  @Output() recepieDetail= new EventEmitter<{recepieName:string, recepieDescription:string, recepieImg:string}>();
-  constructor() { }
+  @Input() recepieList:Recepie; 
+  
+  constructor(private recepieService:recepieService) { }
 
   ngOnInit() {
   }
 
-  sendRecepieDetail(){
-    this.recepieDetail.emit({
-      recepieName:this.recepieList.name,
-      recepieDescription:this.recepieList.description,
-      recepieImg:this.recepieList.imgPath
-    });
- 
+  recepieEmit(){
+    this.recepieService.recepieEmitter.emit(this.recepieList);
+   
   }
-
+ 
 }

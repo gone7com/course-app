@@ -1,9 +1,8 @@
 <div class="row">
    <div class="col-sm-12">
 <div class="row list-group"></div>
-<recepie-item *ngFor="let recepie of recepieList"
+<recepie-item *ngFor="let recepie of this.recepieService.getRecepies(),let i=index"
 [recepieList]="recepie"
-(recepieDetail)="recepieDetail($event)"
 ></recepie-item>
 </div>
 </div>
