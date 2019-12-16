@@ -8,16 +8,9 @@ import { recepieService } from '../recepieService.service';
   styleUrls: ['./recepie-list.component.css'],
 })
 export class RecepieListComponent  {
-  
-
-  
   constructor(private recepieService:recepieService) {
-    
    }
-
     deleteRecepie(id:number){
       this.recepieService.deleteRecepie(id);
     }
-
-   
 }

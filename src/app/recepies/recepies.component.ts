@@ -12,9 +12,5 @@ export class RecepiesComponent implements OnInit {
   constructor(private recepieService:recepieService) { }
   
   ngOnInit() {
-  
   }
-
-  
-
 }

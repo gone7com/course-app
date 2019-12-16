@@ -8,17 +8,11 @@ import { recepieService } from '../../recepieService.service';
   styleUrls: ['./recepie-item.component.css'],
 })
 export class RecepieItemComponent implements OnInit {
-
   @Input() recepieList:Recepie; 
-  
   constructor(private recepieService:recepieService) { }
-
   ngOnInit() {
   }
-
   recepieEmit(){
     this.recepieService.recepieEmitter.emit(this.recepieList);
-   
   }
- 
 }

@@ -12,11 +12,13 @@ export class ShoppingListComponent implements OnInit {
 
   shoppingListShow:Ingredients[];
 
-  constructor(private shoppingList:shoppingList){}
+  constructor(private shoppingList:shoppingList){
+   
+  }
 
 
   ngOnInit() {
-    this.shoppingListShow=this.shoppingList.getShoppingList();
+    
   }
 
 
