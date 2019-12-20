@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter,Output, AfterViewInit } from '@angular/core';
 import {Recepie} from '../recepie.model';
 import { recepieService } from '../recepieService.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'recepie-list',
@@ -13,4 +14,5 @@ export class RecepieListComponent  {
     deleteRecepie(id:number){
       this.recepieService.deleteRecepie(id);
     }
+    
 }

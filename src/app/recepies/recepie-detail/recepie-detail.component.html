@@ -16,7 +16,7 @@
                     Manage Recepie
                 </button>
                 <ul class="dropdown-menu" [ngClass]="{'show':r.isshow}">
-                    <a class="dropdown-item" (click)="sendToShoppingList()">Add To Shopping List</a>
+                    <a class="dropdown-item" (click)="sendToShoppingList()" routerLink='/shopping'>Add To Shopping List</a>
                     <a class="dropdown-item">Delete</a>
                 </ul>
               </div>

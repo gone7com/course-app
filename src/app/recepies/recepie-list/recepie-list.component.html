@@ -3,6 +3,7 @@
 <div class="row list-group"></div>
 <recepie-item *ngFor="let recepie of this.recepieService.getRecepies(),let i=index"
 [recepieList]="recepie"
+[id]="i"
 ></recepie-item>
 </div>
 </div>

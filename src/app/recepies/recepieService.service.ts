@@ -8,7 +8,7 @@ export class recepieService{
     new Recepie("roeche","Its a Italian Dish made up of choclate and bread","https://www.dinneratthezoo.com/wp-content/uploads/2018/07/penne-alla-vodka-5.jpg",[new Ingredients("toamto",5),new Ingredients("salt",7)]),
     new Recepie("Salsa","Its a Italian Dish","https://www.dinneratthezoo.com/wp-content/uploads/2018/07/penne-alla-vodka-5.jpg",[new Ingredients("choclate",5),new Ingredients("parle",7)])];
     
-     currentRecepieSelected:Recepie = this.recepieList[0];
+     currentRecepieSelected:Recepie;
 
      getRecepies(){
     return this.recepieList;
@@ -18,8 +18,9 @@ export class recepieService{
         this.recepieList.splice(id,1);
     }
 
-    recepieSelected(id:number){
+    recepieSelected(id:number):Recepie{
         this.currentRecepieSelected=this.recepieList[id];
+        return this.currentRecepieSelected;
     }
 
     getCurrentRecepie(id:number){
