@@ -15,7 +15,6 @@ export class dropdownDirective{
         @HostListener('click') toggleDropDown(){
             this.isshow = !this.isshow;
             console.log(this.isshow);
-
         }   
 
 }

@@ -5,8 +5,7 @@ import { recepieService } from './recepies/recepieService.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers:[shoppingList,recepieService]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'course-app';

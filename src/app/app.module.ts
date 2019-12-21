@@ -12,12 +12,12 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import {FormsModule} from '@angular/forms';
 import { dropdownDirective } from './shared/dropdown.directive';
 import { shoppingList } from './shopping-list/shoppingList.service';
-import {Routes, RouterModule} from '@angular/router'
+import { AppRoutingModule } from './app-routing.module';
+import { SelectRecepiesComponent } from './recepies/select-recepies/select-recepies.component';
+import { RecepiEditComponent } from './recepies/recepi-edit/recepi-edit.component';
+import { recepieService } from './recepies/recepieService.service';
 
-const appRoutes:Routes=[
-  {path:'shopping',component:ShoppingListComponent},
-  {path:'',component:RecepiesComponent}
-];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,14 +28,16 @@ const appRoutes:Routes=[
     RecepieItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    dropdownDirective
+    dropdownDirective,
+    SelectRecepiesComponent,
+    RecepiEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
-  providers: [shoppingList],
+  providers: [shoppingList,recepieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

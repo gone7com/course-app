@@ -15,11 +15,10 @@ export class RecepieItemComponent implements OnInit {
   ngOnInit() {
   }
   recepieEmit(){
-    // this.recepieService.recepieEmitter.emit(this.recepieList);
+   
   }
   showRecepieDetail(){
     this.recepieService.recepieSelected(this.id);
-    this.router.navigate(['recepies/'+this.id]);
-    console.log("working"+this.id);
+    
   }
 }

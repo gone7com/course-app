@@ -1,0 +1,19 @@
+<form>
+        <div class="form-group">
+          <label for="recepieName">Recepie Name</label>
+          <input type="email" class="form-control" id="recepieName" aria-describedby="emailHelp" [(ngModel)]="name"  [ngModelOptions]="{standalone: true}" value="{{name}}">
+        </div>
+        <div class="form-group">
+          <label for="recepieDetail">Recepie Detail</label>
+          <input type="text" class="form-control" id="recepieDetail" [(ngModel)]="description"  [ngModelOptions]="{standalone: true}" value="{{description}}">
+        </div>
+        <div class="form-group">
+                <label for="recepieImg">Recepie Image</label>
+                <input type="text" class="form-control" id="recepieImg" [(ngModel)]="img"  [ngModelOptions]="{standalone: true}" value="{{img}}">
+              </div>
+              <div class="form-group">
+                    <label for="recepieIng">Recepie Ingredients</label>
+                    <input type="text" class="form-control" id="recepieIng" [(ngModel)]="ingredients"  [ngModelOptions]="{standalone: true}"  value="{{ingredients}}">
+                  </div>
+        <button type="submit" class="btn btn-success" (click)="addRecepie()">Add Recepie</button>
+      </form>

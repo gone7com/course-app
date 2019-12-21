@@ -17,7 +17,8 @@
                 </button>
                 <ul class="dropdown-menu" [ngClass]="{'show':r.isshow}">
                     <a class="dropdown-item" (click)="sendToShoppingList()" routerLink='/shopping'>Add To Shopping List</a>
-                    <a class="dropdown-item">Delete</a>
+                    <a routerLink="/recepies/{{id}}/edit" class="dropdown-item">Edit</a>
+                    <a class="dropdown-item"  (click)="deleteRecepie(id)" routerLink="/recepies">Delete</a>
                 </ul>
               </div>
             </div>

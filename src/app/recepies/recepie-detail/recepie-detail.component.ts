@@ -14,7 +14,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class RecepieDetailComponent implements OnInit {
    recepie:Recepie;
    ingredients:Ingredients[];
-
+    id:number;
   constructor(private recepieService:recepieService,private shoppingList:shoppingList,private routes:ActivatedRoute,private route:Router) {
     this.recepie=this.recepieService.recepieSelected(this.routes.snapshot.params.id);
     this.ingredients=this.recepieService.currentRecepieSelected.ingredients;
@@ -22,7 +22,7 @@ export class RecepieDetailComponent implements OnInit {
    }
   ngOnInit() {
     this.routes.params.subscribe((params: Params) => {
-      const id = params['id'];
+       this.id = params['id'];
       this.recepie=this.recepieService.currentRecepieSelected;
       this.ingredients=this.recepieService.currentRecepieSelected.ingredients;
     });
@@ -31,5 +31,9 @@ export class RecepieDetailComponent implements OnInit {
     this.shoppingList.addRecepieIngtoShoppingList(this.ingredients);
   }
 
+  deleteRecepie(id:number){
+    this.recepieService.deleteRecepie(id);
+
+  }
 
 }
