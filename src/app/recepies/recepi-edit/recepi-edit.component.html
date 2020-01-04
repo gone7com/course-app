@@ -9,11 +9,27 @@
         </div>
         <div class="form-group">
                 <label for="recepieImg">Recepie Image</label>
-                <input type="text" class="form-control" id="recepieImg"   formControlName="image">
+                <input type="text" class="form-control" id="recepieImg"   formControlName="image" #imageURL>
               </div>
-              <div class="form-group">
-                    <label for="recepieIng">Recepie Ingredients</label>
-                    <input type="text" class="form-control" id="recepieIng"   formControlName="ingredient">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <img [src]="imageURL.value" alt="" class="img-responsive" style="max-height: 300px;">
                   </div>
+              </div>
+              <div class="form-group" formArrayName="ingredientArray" >
+                    <label for="recepieIng">Recepie Ingredients</label>
+                  <div class="form-group">
+                    <div class="row" *ngFor="let ingControl of recepieEditForm.get('ingredientArray').controls;let i = index"  [formGroupName]="i">
+                      <div class="col-md-6">
+                    <input type="text" class="form-control" id="recepieIng2" formControlName="name"  >
+                  </div>
+                  <div class="col-md-6">
+                      <input type="text" class="form-control" id="recepieIng2"  formControlName="amount" >
+                    </div>
+                </div>
+                  </div>
+                  </div>
+                  
         <button type="submit" class="btn btn-success">Add Recepie</button>
       </form>
+      <button class="btn btn-primary" (click)="addIngredientRow()">Add Ingredient</button>
