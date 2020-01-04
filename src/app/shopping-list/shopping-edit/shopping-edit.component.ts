@@ -20,11 +20,12 @@ export class ShoppingEditComponent implements OnInit {
   ngOnInit() {
   }
 
-  addNewIngredient(){
-    this.shoppingListservice.addToShoppingList(new Ingredients(this.name,this.amount));
+  addNewIngredient(formValue:any){
+    this.shoppingListservice.addToShoppingList(new Ingredients(formValue.name,formValue.amount));
     console.log(this.shoppingListservice.getShoppingList());
     this.name='';
     this.amount=0;
+    console.log(formValue);
   }
 
   clearShoppingList(){
@@ -32,8 +33,6 @@ export class ShoppingEditComponent implements OnInit {
    this.name='';
    this.amount=0;
   }
-
-  
 
 }
 

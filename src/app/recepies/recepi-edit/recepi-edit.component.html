@@ -1,19 +1,19 @@
-<form>
+<form [formGroup]="recepieEditForm" (ngSubmit)="addRecepie()" >
         <div class="form-group">
           <label for="recepieName">Recepie Name</label>
-          <input type="email" class="form-control" id="recepieName" aria-describedby="emailHelp" [(ngModel)]="name"  [ngModelOptions]="{standalone: true}" value="{{name}}">
+          <input type="email" class="form-control" id="recepieName"   formControlName="name">
         </div>
         <div class="form-group">
           <label for="recepieDetail">Recepie Detail</label>
-          <input type="text" class="form-control" id="recepieDetail" [(ngModel)]="description"  [ngModelOptions]="{standalone: true}" value="{{description}}">
+          <input type="text" class="form-control" id="recepieDetail"   formControlName="detail">
         </div>
         <div class="form-group">
                 <label for="recepieImg">Recepie Image</label>
-                <input type="text" class="form-control" id="recepieImg" [(ngModel)]="img"  [ngModelOptions]="{standalone: true}" value="{{img}}">
+                <input type="text" class="form-control" id="recepieImg"   formControlName="image">
               </div>
               <div class="form-group">
                     <label for="recepieIng">Recepie Ingredients</label>
-                    <input type="text" class="form-control" id="recepieIng" [(ngModel)]="ingredients"  [ngModelOptions]="{standalone: true}"  value="{{ingredients}}">
+                    <input type="text" class="form-control" id="recepieIng"   formControlName="ingredient">
                   </div>
-        <button type="submit" class="btn btn-success" (click)="addRecepie()">Add Recepie</button>
+        <button type="submit" class="btn btn-success">Add Recepie</button>
       </form>
