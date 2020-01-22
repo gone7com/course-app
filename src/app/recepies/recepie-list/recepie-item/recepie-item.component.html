@@ -1,9 +1,9 @@
 <a style="cursor: pointer;" routerLink="/recepies/{{id}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item clearfix"  (click)="showRecepieDetail()" >
         <div class="pull-left">
-        <h4 class="list-group-item-heading">{{recepieList.name}} </h4>
-        <p class="list-group-item-text">{{recepieList.description}}</p>
+        <h4 class="list-group-item-heading">{{recepieList.recepieName}} </h4>
+        <p class="list-group-item-text">{{recepieList.recepieDescription}}</p>
         </div>
-        <span class="pull-right"><img src="{{recepieList.imgPath}}" alt="dj" class="img-responsive " style="max-height:50px;"></span>
+        <span class="pull-right"><img src="{{recepieList.imageUrl}}" alt="dj" class="img-responsive " style="max-height:50px;"></span>
         
         </a>
         

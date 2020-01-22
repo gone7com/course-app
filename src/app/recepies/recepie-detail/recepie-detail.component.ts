@@ -4,6 +4,7 @@ import { recepieService } from '../recepieService.service';
 import { Ingredients } from 'src/app/shared/Ingredients.model';
 import { shoppingList } from 'src/app/shopping-list/shoppingList.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { recepieAddService } from '../recepieAddService.service';
 
 @Component({
   selector: 'recepie-detail',
@@ -15,16 +16,40 @@ export class RecepieDetailComponent implements OnInit {
    recepie:Recepie;
    ingredients:Ingredients[];
     id:number;
-  constructor(private recepieService:recepieService,private shoppingList:shoppingList,private routes:ActivatedRoute,private route:Router) {
-    this.recepie=this.recepieService.recepieSelected(this.routes.snapshot.params.id);
-    this.ingredients=this.recepieService.currentRecepieSelected.ingredients;
-    
+  constructor(private recepieService:recepieService,private shoppingList:shoppingList,private routes:ActivatedRoute,private route:Router,private recepieAddService:recepieAddService) {
+  //   this.routes.params.subscribe((params: Params) => {
+  //     this.id = params['id'];
+  //     console.log("kkkkkkkkkkkkkkkkkooooooo"+this.id)
+  //    this.recepie=this.recepieService.currentRecepieSelected;
+  //    this.ingredients=this.recepieService.currentRecepieSelected.ingredients;
+  //  });
+    // this.recepieAddService.getAllRecepie().subscribe(
+    //   (recepies)=>{
+    //     this.recepieService.recepieList=recepies;
+    //     this.recepie=this.recepieService.currentRecepieSelected;
+    //     console.log("ccccccccccccuuuuuuuuuuuuuuu"+this.recepie);
+    //     this.ingredients=this.recepieService.currentRecepieSelected.ingredients;
+    //   }     
+    // )
+   
+    // this.recepie=this.recepieService.currentRecepieSelected;
+    //    // console.log("ccccccccccccuuuuuuuuuuuuuuu"+this.recepie);
+        // this.ingredients=this.recepieService.currentRecepieSelected.ingredients; 
    }
   ngOnInit() {
     this.routes.params.subscribe((params: Params) => {
-       this.id = params['id'];
-      this.recepie=this.recepieService.currentRecepieSelected;
-      this.ingredients=this.recepieService.currentRecepieSelected.ingredients;
+      console.log("rrrrrrrrooooooo"+ params['id']) 
+      this.id = params['id'];
+      this.recepieAddService.getAllRecepie().subscribe(
+          (recepies)=>{
+            this.recepieService.recepieList=recepies;
+            this.recepie=this.recepieService.recepieSelected(this.id);
+            console.log("ccccccccccccuuuuuuuuuuuuuuu"+this.recepie);
+            this.ingredients=this.recepieService.currentRecepieSelected.ingredients;
+          }     
+        )
+       
+   
     });
   }
   sendToShoppingList(){
@@ -32,8 +57,10 @@ export class RecepieDetailComponent implements OnInit {
   }
 
   deleteRecepie(id:number){
-    this.recepieService.deleteRecepie(id);
-
+    this.recepieAddService.deleteRecepie(this.recepie).subscribe(
+      (data)=>console.log("Recepie deleted")
+    );
+    this.route.navigate(["/recepies"]);
   }
 
 }

@@ -16,6 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { SelectRecepiesComponent } from './recepies/select-recepies/select-recepies.component';
 import { RecepiEditComponent } from './recepies/recepi-edit/recepi-edit.component';
 import { recepieService } from './recepies/recepieService.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { recepieAddService } from './recepies/recepieAddService.service';
 
 
 @NgModule({
@@ -30,15 +32,17 @@ import { recepieService } from './recepies/recepieService.service';
     ShoppingEditComponent,
     dropdownDirective,
     SelectRecepiesComponent,
-    RecepiEditComponent
+    RecepiEditComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [shoppingList,recepieService],
+  providers: [shoppingList,recepieService,recepieAddService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

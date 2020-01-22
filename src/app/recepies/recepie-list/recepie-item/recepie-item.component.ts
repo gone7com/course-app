@@ -11,13 +11,15 @@ import { Routes, Router } from '@angular/router';
 export class RecepieItemComponent implements OnInit {
   @Input() recepieList:Recepie; 
   @Input() id:number;
-  constructor(private recepieService:recepieService,private router:Router) { }
+  
+  constructor(private recepieService:recepieService,private router:Router) {}
   ngOnInit() {
   }
   recepieEmit(){
    
   }
   showRecepieDetail(){
+    // console.log("0000000000000000000000"+this.id)
     this.recepieService.recepieSelected(this.id);
     
   }

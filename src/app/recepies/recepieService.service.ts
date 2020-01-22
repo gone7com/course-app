@@ -6,16 +6,17 @@ import { Router } from '@angular/router';
 @Injectable()
 export class recepieService{
     recepieEmitter= new EventEmitter<Recepie>();
-   private recepieList:Recepie[]=[new Recepie("pasta","Its a Italian Dish","https://www.dinneratthezoo.com/wp-content/uploads/2018/07/penne-alla-vodka-5.jpg",[new Ingredients("garlic",2),new Ingredients("onion",3)]),
-    new Recepie("roeche","Its a Italian Dish made up of choclate and bread","https://www.dinneratthezoo.com/wp-content/uploads/2018/07/penne-alla-vodka-5.jpg",[new Ingredients("toamto",5),new Ingredients("salt",7)]),
-    new Recepie("Salsa","Its a Italian Dish","https://www.dinneratthezoo.com/wp-content/uploads/2018/07/penne-alla-vodka-5.jpg",[new Ingredients("choclate",5),new Ingredients("parle",7)])];
+    recepieList:Recepie[];
+    recepieId:number;
     
     constructor(private router:Router){
-
+        
     }
      currentRecepieSelected:Recepie;
 
      getRecepies(){
+         console.log(this.recepieList[1].ingredients)
+        //  console.log("-------------------------"+this.recepieList);
     return this.recepieList;
     }
 
@@ -26,6 +27,7 @@ export class recepieService{
     recepieSelected(id:number):Recepie{
         if(this.recepieList.length-1>=id){
         this.currentRecepieSelected=this.recepieList[id];
+       // console.log(this.currentRecepieSelected)
         return this.currentRecepieSelected;
         }
         else{

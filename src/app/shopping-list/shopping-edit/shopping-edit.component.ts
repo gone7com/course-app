@@ -11,8 +11,8 @@ import { shoppingList } from '../shoppingList.service';
 })
 export class ShoppingEditComponent implements OnInit {
 
-  name:string='';
-  amount:number;
+  ingredientName:string='';
+  ingredientAmount:number;
 
 
   constructor(private shoppingListservice:shoppingList) { }
@@ -23,15 +23,15 @@ export class ShoppingEditComponent implements OnInit {
   addNewIngredient(formValue:any){
     this.shoppingListservice.addToShoppingList(new Ingredients(formValue.name,formValue.amount));
     console.log(this.shoppingListservice.getShoppingList());
-    this.name='';
-    this.amount=0;
+    this.ingredientName='';
+    this.ingredientAmount=0;
     console.log(formValue);
   }
 
   clearShoppingList(){
     this.shoppingListservice.shoppingList=[]
-   this.name='';
-   this.amount=0;
+   this.ingredientName='';
+   this.ingredientAmount=0;
   }
 
 }

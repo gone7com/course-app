@@ -1,15 +1,15 @@
-<form [formGroup]="recepieEditForm" (ngSubmit)="addRecepie()" >
+<form [formGroup]="recepieEditForm" (ngSubmit)="addRecepie()">
         <div class="form-group">
           <label for="recepieName">Recepie Name</label>
-          <input type="email" class="form-control" id="recepieName"   formControlName="name">
+          <input type="email" class="form-control" id="recepieName"   formControlName="recepieName">
         </div>
         <div class="form-group">
           <label for="recepieDetail">Recepie Detail</label>
-          <input type="text" class="form-control" id="recepieDetail"   formControlName="detail">
+          <input type="text" class="form-control" id="recepieDetail"   formControlName="recepieDescription">
         </div>
         <div class="form-group">
                 <label for="recepieImg">Recepie Image</label>
-                <input type="text" class="form-control" id="recepieImg"   formControlName="image" #imageURL>
+                <input type="text" class="form-control" id="recepieImg"   formControlName="imageUrl" #imageURL>
               </div>
               <div class="row">
                   <div class="col-sm-12">
@@ -21,10 +21,10 @@
                   <div class="form-group">
                     <div class="row" *ngFor="let ingControl of recepieEditForm.get('ingredientArray').controls;let i = index"  [formGroupName]="i">
                       <div class="col-md-6">
-                    <input type="text" class="form-control" id="recepieIng2" formControlName="name"  >
+                    <input type="text" class="form-control" id="recepieIng2" formControlName="ingredientName"  >
                   </div>
                   <div class="col-md-6">
-                      <input type="text" class="form-control" id="recepieIng2"  formControlName="amount" >
+                      <input type="text" class="form-control" id="recepieIng2"  formControlName="ingredientAmount" >
                     </div>
                 </div>
                   </div>
